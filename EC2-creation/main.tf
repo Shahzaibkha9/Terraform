@@ -1,4 +1,13 @@
-resource "aws_instance" "test" {
-  ami   = "ami-0ee4f2271a4df2d7d"
-  instance_type = "t2.micro"
+module "module1" {
+  source = "./modules"
+}
+
+resource "aws_instance" "app-server" {
+  ami           = "ami-0c7217cdde317cfec"
+  instance_type = var.instance-type
+  key_name = "deployer-key"
+
+   tags = {
+    Name = var.instance_name
+   }
 }
