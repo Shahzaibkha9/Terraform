@@ -1,5 +1,5 @@
 module "module1" {
-  source = "./modules"
+  source = "./modules/module1"
 }
 
 resource "aws_instance" "app-server" {
